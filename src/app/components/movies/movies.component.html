@@ -1,0 +1,31 @@
+<div class="container-movies">
+  <app-card *ngFor="let movie of movies; index as i" [movie]="movie" (onDelete)="deleteMovie(i)"></app-card>
+</div>
+
+<div class="container-add">
+  <a mat-fab color="warn" aria-label="Example icon button with a add icon" (click)="showForm()">
+      <mat-icon>add</mat-icon>
+  </a>
+</div>
+
+<div *ngIf="isVisible">
+<form (submit)="onSubmit()" #studentForm="ngForm">
+  <span>AGREGAR PELICULA</span><br>
+  <mat-form-field>
+      <input matInput placeholder="Titulo" name="Name" required [(ngModel)]="movieData.name">
+  </mat-form-field>
+  <mat-form-field>
+      <input type="text" matInput placeholder="Url" name="Age" required [(ngModel)]="movieData.photo">
+  </mat-form-field>
+  <mat-form-field>
+      <input type="text" matInput placeholder="Duration" name="Mobile" required [(ngModel)]="movieData.duration">
+  </mat-form-field>
+  <mat-form-field>
+      <input type="text" matInput placeholder="Genero" name="Email" required [(ngModel)]="movieData.genre">
+  </mat-form-field>
+  <div class="container-edit">
+      <a mat-button class="buttonConfirm" type="submit" (click)="addMovie()" (click)="hideForm()">Agregar</a>
+      <a mat-button class="buttonCancel" (click)="hideForm()">Cancelar</a>
+  </div>
+</form>
+</div>

@@ -1,0 +1,15 @@
+.container-home {
+    display: flex;
+    justify-content: center;
+}
+
+.banner {
+    background-image: url("https://www.cinemark.com/media/76005636/01_smb_web_cinemark_1080x360_sl_f01_022823.jpg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 360px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}

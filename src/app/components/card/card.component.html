@@ -1,0 +1,44 @@
+<!-- <div > -->
+    <mat-card class="container-card">
+        <div class="modifyImg">
+            <img src="{{movie.photo}}" alt="Image doesn't exist" width="100%" height="100%">   
+        </div>
+        <div class="container-info">
+            <mat-card-content>
+                {{movie.name}}
+            </mat-card-content>
+            <mat-card-content>
+                {{movie.duration}}
+            </mat-card-content>
+            <mat-card-content> 
+                {{movie.genre}}
+            </mat-card-content>
+        </div>
+        <div class="button-container">
+            <a mat-button class="buttonShow" (click)="showForm()">Edit</a>
+            <a mat-button class="buttonDelete" (click)="deleteForm()">Delete</a>
+        </div>
+    </mat-card>
+<!-- </div> -->
+        <!-- <mat-card-content>
+            {{movie.id}}
+        </mat-card-content> -->
+<div class="container-form" *ngIf="isEditMode" (ngSubmit)="confirmForm()">
+    <span>EDITAR - PELICULA</span><br>
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label><input matInput [(ngModel)]="movie.name" name="id" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Url</mat-label><input matInput [(ngModel)]="movie.photo" name="photo" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Duration</mat-label><input matInput [(ngModel)]="movie.duration" name="duration" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Genre</mat-label><input matInput [(ngModel)]="movie.genre" name="genre" required>
+    </mat-form-field>
+    <div class="container-edit">
+        <a mat-button class="buttonConfirm" type="submit" (click)="cancelForm()">Confirmar</a>
+        <a mat-button class="buttonCancel" (click)="cancelForm()">Cancelar</a>
+    </div>
+</div>
